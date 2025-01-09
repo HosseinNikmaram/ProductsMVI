@@ -12,6 +12,12 @@ activityKtx = "1.9.3"
 collectionKtx = "1.4.5"
 appcompat = "1.7.0"
 material = "1.12.0"
+hilt = "2.51.1"
+room = "2.6.1"
+serialization = "1.6.0"
+paging = "3.3.5"
+retrofit = "2.11.0"
+coroutines = "1.7.3"
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -31,9 +37,23 @@ androidx-activity-ktx = { group = "androidx.activity", name = "activity-ktx", ve
 androidx-collection-ktx = { group = "androidx.collection", name = "collection-ktx", version.ref = "collectionKtx" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+daggerCompiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room-paging = { group = "androidx.room", name = "room-paging", version.ref = "room" }
+serializationJson = { group = "org.jetbrains.kotlinx.serialization", name = "kotlinx.serialization.json", version.ref = "serialization" }
+coroutines = { group = "org.jetbrains.kotlinx.coroutines", name = "coroutines-core", version.ref = "coroutines" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+paging-runtime = { group = "androidx.paging", name = "paging-runtime", version.ref = "paging" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin_kapt = { id = "kotlin-kapt" }
+hilt_plugin = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+

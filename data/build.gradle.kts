@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.hilt.plugin)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -37,7 +40,29 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+    // Room Components
+    implementation(libs.room.runtime)
+    kapt(libs.daggerCompiler)
+    // Room KTX
+    implementation(libs.room.ktx)
+    // Paging
+    implementation(libs.room.paging)
+    // Hilt
+    implementation(libs.hilt)
+    kapt(libs.daggerCompiler)
+
+    // Serialization
+    implementation(libs.serializationJson)
+
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
+    // Coroutines
+    implementation(libs.coroutines)
     testImplementation(libs.junit)
+    //pagination
+    implementation(libs.paging.runtime)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
