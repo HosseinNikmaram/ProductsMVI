@@ -1,4 +1,4 @@
-package com.nikmaram.data.dto
+package com.nikmaram.data.network.dto
 
 
 data class ProductDto(
@@ -8,5 +8,11 @@ data class ProductDto(
     val description: String,
     val category: String,
     val image: String,
+    val rating: Rating
+)
+
+data class Rating(
+    val rate: Double,
+    val count: Int
 )
 

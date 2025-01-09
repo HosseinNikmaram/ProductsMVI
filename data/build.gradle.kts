@@ -63,6 +63,9 @@ dependencies {
     testImplementation(libs.junit)
     //pagination
     implementation(libs.paging.runtime)
+    // Logging
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
