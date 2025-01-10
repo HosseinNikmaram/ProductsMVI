@@ -1,4 +1,4 @@
-package com.nikmaram.products.navigation
+package com.nikmaram.products.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
@@ -7,7 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.nikmaram.products.navigation.Navigation.Args.PRODUCT_ID
+import com.nikmaram.products.ui.navigation.Navigation.Args.PRODUCT_ID
 
 @Composable
 fun AppNavigation() {

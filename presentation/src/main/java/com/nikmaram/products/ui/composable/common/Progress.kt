@@ -1,4 +1,4 @@
-package com.nikmaram.products.composable.common
+package com.nikmaram.products.ui.composable.common
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
