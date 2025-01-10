@@ -21,7 +21,7 @@ fun AppNavigation() {
         composable(
             route = Navigation.Routes.PRODUCTS
         ) {
-           // UsersScreenDestination(navController)
+            ProductsScreenDestination(navController)
         }
 
         composable(

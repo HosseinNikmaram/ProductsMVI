@@ -7,7 +7,8 @@ import com.nikmaram.data.cache.model.ProductEntity
 
 @Database(
     entities = [ProductEntity::class],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun getProductDao(): ProductDao

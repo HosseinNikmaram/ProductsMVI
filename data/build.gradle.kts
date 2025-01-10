@@ -38,7 +38,7 @@ android {
 dependencies {
     // Room Components
     implementation(libs.room.runtime)
-    kapt(libs.daggerCompiler)
+    kapt(libs.room.compiler)
     // Room KTX
     implementation(libs.room.ktx)
 

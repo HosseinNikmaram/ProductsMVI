@@ -36,6 +36,7 @@ object RetrofitModule {
             .readTimeout(REQUEST_READ_TIMEOUT_SECOND, TimeUnit.SECONDS)
             .writeTimeout(REQUEST_WRITE_TIMEOUT_SECOND, TimeUnit.SECONDS)
             .connectTimeout(REQUEST_CONNECT_TIMEOUT_SECOND, TimeUnit.SECONDS)
+            .retryOnConnectionFailure(true)
             .build()
     }
 

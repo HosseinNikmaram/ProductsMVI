@@ -13,7 +13,7 @@ android {
     defaultConfig {
         applicationId = "com.nikmaram.products"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -43,11 +43,15 @@ android {
 
 dependencies {
     implementation(project(":useCase"))
-
+    implementation(project(":data"))
     // Hilt
     implementation(libs.hilt)
     kapt(libs.daggerCompiler)
-
+    // Room Components
+    implementation(libs.room.runtime)
+    kapt(libs.room.compiler)
+    // Room KTX
+    implementation(libs.room.ktx)
     // Coroutines
     implementation(libs.coroutines)
     testImplementation(libs.junit)
@@ -57,6 +61,8 @@ dependencies {
     //compose
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.hilt.navigation.compose)
     implementation(libs.androidx.ui)
