@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 rootProject.name = "Products"
 include(":presentation")
 include(":data")
+include(":useCase")
