@@ -3,18 +3,7 @@ package com.nikmaram.data.repository.mapper
 import com.nikmaram.data.cache.model.ProductEntity
 import com.nikmaram.data.network.dto.ProductDto
 import com.nikmaram.data.network.dto.Rating
-
-fun ProductEntity.toProductDto() : ProductDto{
-    return ProductDto(
-        id = id,
-        title = title,
-        price = price,
-        description = description,
-        category = category,
-        image = image,
-        rating = Rating(0.0,0)
-    )
-}
+import com.nikmaram.entity.Product
 
 fun ProductDto.toProductEntity() : ProductEntity {
     return ProductEntity(
@@ -26,10 +15,32 @@ fun ProductDto.toProductEntity() : ProductEntity {
         image = image,
     )
 }
-fun List<ProductEntity>.toProductDtoList(): List<ProductDto> {
-    val returnableList = mutableListOf<ProductDto>()
+
+fun ProductEntity.toProduct() : Product{
+    return Product(
+        id = id,
+        title = title,
+        price = price,
+        description = description,
+        category = category,
+        image = image,
+    )
+}
+
+fun Product.toProductEntity() : ProductEntity {
+    return ProductEntity(
+        id = id,
+        title = title,
+        price = price,
+        description = description,
+        category = category,
+        image = image,
+    )
+}
+fun List<ProductEntity>.toProductList(): List<Product> {
+    val returnableList = mutableListOf<Product>()
     for (n in this.indices) {
-        returnableList.add(this[n].toProductDto())
+        returnableList.add(this[n].toProduct())
     }
     return returnableList
 }

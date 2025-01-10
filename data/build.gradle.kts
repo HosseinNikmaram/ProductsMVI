@@ -36,7 +36,7 @@ android {
 }
 
 dependencies {
-
+    implementation(project(":useCase"))
     // Room Components
     implementation(libs.room.runtime)
     kapt(libs.daggerCompiler)
