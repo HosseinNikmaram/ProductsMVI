@@ -2,8 +2,7 @@ package com.nikmaram.data.repository.mapper
 
 import com.nikmaram.data.cache.model.ProductEntity
 import com.nikmaram.data.network.dto.ProductDto
-import com.nikmaram.data.network.dto.Rating
-import com.nikmaram.entity.Product
+import com.nikmaram.data.model.Product
 
 fun ProductDto.toProductEntity() : ProductEntity {
     return ProductEntity(
@@ -16,7 +15,7 @@ fun ProductDto.toProductEntity() : ProductEntity {
     )
 }
 
-fun ProductEntity.toProduct() : Product{
+fun ProductEntity.toProduct() : Product {
     return Product(
         id = id,
         title = title,

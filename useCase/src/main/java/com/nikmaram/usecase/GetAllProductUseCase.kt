@@ -1,7 +1,7 @@
 package com.nikmaram.usecase
 
 import com.nikmaram.data.repository.ProductRepository
-import com.nikmaram.entity.Product
+import com.nikmaram.data.model.Product
 import javax.inject.Inject
 
 class GetAllProductUseCase @Inject constructor(
