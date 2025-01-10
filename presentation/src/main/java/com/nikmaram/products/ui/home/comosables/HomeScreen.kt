@@ -9,12 +9,11 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.nikmaram.products.ui.base.SIDE_EFFECTS_KEY
-import com.nikmaram.products.ui.composable.common.NetworkError
-import com.nikmaram.products.ui.composable.common.Progress
+import com.nikmaram.products.ui.feature.common.NetworkError
+import com.nikmaram.products.ui.feature.common.Progress
 import com.nikmaram.products.ui.home.HomeContract
 import com.nikmaram.products.ui.utility.generateFakeProduct
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 
@@ -66,7 +65,7 @@ fun HomeScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun UsersScreenSuccessPreview() {
+fun HomeScreenSuccessPreview() {
     HomeScreen(
         state = HomeContract.HomeState.DataLoaded(
             products = generateFakeProduct(),
