@@ -23,6 +23,7 @@ fun ProductEntity.toProduct() : Product {
         description = description,
         category = category,
         image = image,
+        isBookMarked = bookMarked
     )
 }
 
@@ -34,6 +35,7 @@ fun Product.toProductEntity() : ProductEntity {
         description = description,
         category = category,
         image = image,
+        bookMarked = isBookMarked
     )
 }
 fun List<ProductEntity>.toProductList(): List<Product> {

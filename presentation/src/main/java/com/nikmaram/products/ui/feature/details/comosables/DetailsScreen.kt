@@ -36,14 +36,15 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 
+
 @Composable
 fun DetailsScreen(
     state: DetailsContract.DetailsState,
     effectFlow: Flow<DetailsContract.Effect>?,
+    isBookMarked: Boolean,
     onNavigationRequested: (navigationEffect: DetailsContract.Effect.Navigation) -> Unit,
     onEventSent: (event: DetailsContract.Event) -> Unit,
 ) {
-
     LaunchedEffect(SIDE_EFFECTS_KEY) {
         effectFlow?.onEach { effect ->
             when (effect) {
@@ -55,15 +56,23 @@ fun DetailsScreen(
     }
     Scaffold(
         topBar = {
-            DetailsTopBar {
-                onEventSent(DetailsContract.Event.BackButtonClicked)
-            }
+            DetailsTopBar(
+                isBookMarked = isBookMarked,
+                onBackClick = {
+                    onEventSent(DetailsContract.Event.BackButtonClicked)
+                },
+                onBookmarkClick = {isBookMarked ->
+                    onEventSent(DetailsContract.Event.BookMarkClicked(isBookMarked))
+                }
+            )
         }
     ) { innerPadding ->
         Box(Modifier.padding(innerPadding)) {
             when (state) {
                 is DetailsContract.DetailsState.DataLoaded -> {
-                    state.product?.let { DetailsScreenContent(it) }
+                    state.product?.let {
+                        DetailsScreenContent(it)
+                    }
                 }
                 is DetailsContract.DetailsState.Error -> {
                     NetworkError { onEventSent(DetailsContract.Event.Retry) }
@@ -177,6 +186,7 @@ fun DetailsScreenSuccessPreview() {
         ),
         effectFlow = null,
         onNavigationRequested = {},
-        onEventSent = {}
+        onEventSent = {},
+        isBookMarked = true
     )
 }

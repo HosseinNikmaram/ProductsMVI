@@ -36,8 +36,8 @@ class ProductImp  @Inject constructor(
         }
     }
 
-    override suspend fun updateProduct(product: Product) {
-            productDao.updateProduct(product.toProductEntity())
+    override suspend fun updateProduct(productId: Int, bookMarked: Boolean) {
+            productDao.updateBookMarked(productId, bookMarked)
     }
 
 }

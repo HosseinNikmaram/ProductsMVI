@@ -23,6 +23,6 @@ interface ProductDao {
     @Query("SELECT COUNT(*) FROM products")
     suspend fun getProductCount(): Int
 
-    @Update
-    suspend fun updateProduct(product: ProductEntity)
+    @Query("UPDATE products SET bookMarked = :bookMarked WHERE id = :productId")
+    suspend fun updateBookMarked(productId: Int, bookMarked: Boolean)
 }

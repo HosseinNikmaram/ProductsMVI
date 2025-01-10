@@ -9,4 +9,6 @@
     <string name="image_not_available">image not avalible</string>
     <string name="productDetails">product Detail</string>
     <string name="back">back\n</string>
+    <string name="remove_bookmark">remove bookmark</string>
+    <string name="add_bookmark">add bookmark</string>
 </resources>

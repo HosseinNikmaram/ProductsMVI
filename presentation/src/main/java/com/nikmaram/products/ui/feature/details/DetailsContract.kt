@@ -10,13 +10,15 @@ class DetailsContract {
     sealed class Event : ViewEvent {
         data object Retry : Event()
         data object BackButtonClicked : Event()
+        data class BookMarkClicked(val isBookMarked:Boolean) : Event()
     }
 
     sealed class DetailsState : ViewState {
         data class DataLoaded(val product: Product?) : DetailsState()
         data object LoadingState : DetailsState()
         data object Error : DetailsState()
-        data object Initial : DetailsState()    }
+        data object Initial : DetailsState()
+    }
 
     sealed class Effect : ViewSideEffect {
         sealed class Navigation : Effect() {

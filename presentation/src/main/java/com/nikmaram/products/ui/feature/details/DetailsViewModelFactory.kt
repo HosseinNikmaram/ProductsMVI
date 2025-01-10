@@ -4,13 +4,13 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.nikmaram.usecase.GetProductByIdUseCase
-import com.nikmaram.usecase.UpdateProductUseCase
+import com.nikmaram.usecase.UpdateBookMarkUseCase
 import javax.inject.Inject
 
 class DetailsViewModelFactory @Inject constructor(
     private val savedStateHandle: SavedStateHandle,
     private val productByIdUseCase: GetProductByIdUseCase,
-    private val updateProductUseCase: UpdateProductUseCase
+    private val updateProductUseCase: UpdateBookMarkUseCase
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(DetailsViewModel::class.java)) {
