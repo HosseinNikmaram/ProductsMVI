@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.hilt.plugin)
 }
 
 android {
@@ -40,9 +42,20 @@ android {
 }
 
 dependencies {
+    implementation(project(":useCase"))
+
+    // Hilt
+    implementation(libs.hilt)
+    kapt(libs.daggerCompiler)
+
+    // Coroutines
+    implementation(libs.coroutines)
+    testImplementation(libs.junit)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    //compose
+    implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
