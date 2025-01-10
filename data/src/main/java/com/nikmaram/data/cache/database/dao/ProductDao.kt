@@ -12,10 +12,16 @@ interface ProductDao {
     suspend fun insertProducts(productEntities: List<ProductEntity>)
 
     @Query("SELECT * FROM products WHERE title LIKE :searchQuery ORDER BY title ASC")
-    suspend fun searchProductsByTitle(searchQuery: String): List<ProductEntity>
+    suspend fun searchProductsByTitle(searchQuery: String): List<ProductEntity>?
 
     @Query("SELECT * FROM products ORDER BY title ASC")
     suspend fun getProducts():List<ProductEntity>
+
+    @Query("SELECT * FROM products WHERE id = :productId LIMIT 1")
+    suspend fun getProductById(productId: Int): ProductEntity?
+
+    @Query("SELECT COUNT(*) FROM products")
+    suspend fun getProductCount(): Int
 
     @Update
     suspend fun updateProduct(product: ProductEntity)
