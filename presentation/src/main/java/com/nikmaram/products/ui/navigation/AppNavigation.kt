@@ -31,10 +31,9 @@ fun AppNavigation() {
             })
         ) { backStackEntry ->
             val productID = requireNotNull(backStackEntry.arguments?.getInt(PRODUCT_ID)) { "Product id is required as an argument" }
-//            ReposScreenDestination(
-//                userId = userId,
-//                navController = navController
-//            )
+           DetailsScreenDestination(
+               navController = navController,
+           )
         }
     }
 }

@@ -5,4 +5,8 @@
     <string name="networkErrorDescription">An error occurred. Check your connection or try again</string>
     <string name="errorRetryButtonText">Try again</string>
     <string name="strFetchingDataFromServer">Fetching data from server</string>
+    <string name="product_image">product image</string>
+    <string name="image_not_available">image not avalible</string>
+    <string name="productDetails">product Detail</string>
+    <string name="back">back\n</string>
 </resources>
