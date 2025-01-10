@@ -6,7 +6,7 @@ import com.nikmaram.data.repository.mapper.toProduct
 import com.nikmaram.data.repository.mapper.toProductEntity
 import com.nikmaram.data.repository.mapper.toProductEntityList
 import com.nikmaram.data.repository.mapper.toProductList
-import com.nikmaram.entity.Product
+import com.nikmaram.data.model.Product
 import javax.inject.Inject
 
 class ProductImp  @Inject constructor(

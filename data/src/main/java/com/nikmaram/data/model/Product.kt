@@ -1,4 +1,4 @@
-package com.nikmaram.entity
+package com.nikmaram.data.model
 
 
 data class Product(
