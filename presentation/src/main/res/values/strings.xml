@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Products</string>
+    <string name="strRetry">Retry</string>
+    <string name="errorTitle">Oh no!</string>
+    <string name="networkErrorDescription">An error occurred. Check your connection or try again</string>
+    <string name="errorRetryButtonText">Try again</string>
+    <string name="strFetchingDataFromServer">Fetching data from server</string>
 </resources>
