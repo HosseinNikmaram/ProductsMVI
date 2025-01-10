@@ -37,16 +37,12 @@ android {
 
 dependencies {
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
     // Room Components
     implementation(libs.room.runtime)
     kapt(libs.daggerCompiler)
     // Room KTX
     implementation(libs.room.ktx)
-    // Paging
-    implementation(libs.room.paging)
+
     // Hilt
     implementation(libs.hilt)
     kapt(libs.daggerCompiler)
@@ -61,8 +57,7 @@ dependencies {
     // Coroutines
     implementation(libs.coroutines)
     testImplementation(libs.junit)
-    //pagination
-    implementation(libs.paging.runtime)
+
     // Logging
     implementation(libs.okhttp)
     implementation(libs.logging.interceptor)
