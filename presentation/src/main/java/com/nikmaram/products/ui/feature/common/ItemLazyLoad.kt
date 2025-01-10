@@ -1,4 +1,4 @@
-package com.nikmaram.products.ui.composable.common
+package com.nikmaram.products.ui.feature.common
 
 
 import androidx.compose.foundation.layout.Arrangement
