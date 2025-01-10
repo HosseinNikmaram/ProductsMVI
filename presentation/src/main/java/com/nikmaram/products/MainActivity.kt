@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import com.nikmaram.products.navigation.AppNavigation
+import com.nikmaram.products.ui.navigation.AppNavigation
 import com.nikmaram.products.ui.theme.ProductsTheme
 import dagger.hilt.android.AndroidEntryPoint
 
