@@ -1,4 +1,4 @@
-package com.nikmaram.products.ui.home.comosables
+package com.nikmaram.products.ui.feature.home.comosables
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -17,7 +17,7 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.dimensionResource
 import com.nikmaram.data.model.Product
 import com.nikmaram.products.R
-import com.nikmaram.products.ui.home.comosables.HomeListItem
+import com.nikmaram.products.ui.feature.home.comosables.HomeListItem
 
 
 @Composable

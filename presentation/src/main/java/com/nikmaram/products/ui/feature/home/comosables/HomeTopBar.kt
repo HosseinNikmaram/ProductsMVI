@@ -1,4 +1,4 @@
-package com.nikmaram.products.ui.home.comosables
+package com.nikmaram.products.ui.feature.home.comosables
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close

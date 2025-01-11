@@ -3,9 +3,9 @@ package com.nikmaram.products.ui.navigation
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.nikmaram.products.ui.home.HomeContract
-import com.nikmaram.products.ui.home.HomeViewModel
-import com.nikmaram.products.ui.home.comosables.HomeScreen
+import com.nikmaram.products.ui.feature.home.HomeContract
+import com.nikmaram.products.ui.feature.home.HomeViewModel
+import com.nikmaram.products.ui.feature.home.comosables.HomeScreen
 
 
 @Composable

@@ -1,4 +1,4 @@
-package com.nikmaram.products.ui.home.comosables
+package com.nikmaram.products.ui.feature.home.comosables
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row

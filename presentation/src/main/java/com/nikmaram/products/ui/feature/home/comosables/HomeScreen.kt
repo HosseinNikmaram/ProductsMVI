@@ -1,4 +1,4 @@
-package com.nikmaram.products.ui.home.comosables
+package com.nikmaram.products.ui.feature.home.comosables
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,8 +12,8 @@ import com.nikmaram.products.ui.base.SIDE_EFFECTS_KEY
 import com.nikmaram.products.ui.feature.common.NetworkError
 import com.nikmaram.products.ui.feature.common.NotFindItem
 import com.nikmaram.products.ui.feature.common.Progress
-import com.nikmaram.products.ui.home.HomeContract
-import com.nikmaram.products.ui.home.HomeViewModel
+import com.nikmaram.products.ui.feature.home.HomeContract
+import com.nikmaram.products.ui.feature.home.HomeViewModel
 import com.nikmaram.products.ui.utility.generateFakeProduct
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect

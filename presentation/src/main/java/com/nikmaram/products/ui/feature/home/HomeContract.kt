@@ -1,4 +1,4 @@
-package com.nikmaram.products.ui.home
+package com.nikmaram.products.ui.feature.home
 
 import androidx.compose.runtime.Immutable
 import com.nikmaram.data.model.Product
