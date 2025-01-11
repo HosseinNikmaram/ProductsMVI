@@ -21,3 +21,16 @@ A modern Android application showcasing products using Clean Architecture princi
 
 ## 🏗️ Architecture
 This app follows Clean Architecture principles and is organized into the following modules:
+
+### Architecture Components
+- **Data Layer**: Handles data operations using Repository pattern
+- **Domain Layer**: Contains business logic and use cases
+- **Presentation Layer**: Implements MVI pattern with Compose UI
+
+## 🌟 Features
+- Display list of products
+- Product details view
+- Offline support with Room database
+- Error handling and loading states
+- Clean and Modern UI with Material Design 3
+
