@@ -31,6 +31,7 @@ import com.nikmaram.products.ui.base.SIDE_EFFECTS_KEY
 import com.nikmaram.products.ui.feature.common.NetworkError
 import com.nikmaram.products.ui.feature.common.Progress
 import com.nikmaram.products.ui.feature.details.DetailsContract
+import com.nikmaram.products.ui.feature.details.DetailsViewModel
 import com.nikmaram.products.ui.utility.generateFakeProduct
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
@@ -41,7 +42,7 @@ import kotlinx.coroutines.flow.onEach
 fun DetailsScreen(
     state: DetailsContract.DetailsState,
     effectFlow: Flow<DetailsContract.Effect>?,
-    isBookMarked: Boolean,
+    viewModel: DetailsViewModel?,
     onNavigationRequested: (navigationEffect: DetailsContract.Effect.Navigation) -> Unit,
     onEventSent: (event: DetailsContract.Event) -> Unit,
 ) {
@@ -57,7 +58,7 @@ fun DetailsScreen(
     Scaffold(
         topBar = {
             DetailsTopBar(
-                isBookMarked = isBookMarked,
+                isBookMarked = viewModel?.isBookMarked?.value ?: false,
                 onBackClick = {
                     onEventSent(DetailsContract.Event.BackButtonClicked)
                 },
@@ -187,6 +188,6 @@ fun DetailsScreenSuccessPreview() {
         effectFlow = null,
         onNavigationRequested = {},
         onEventSent = {},
-        isBookMarked = true
+        viewModel = null
     )
 }

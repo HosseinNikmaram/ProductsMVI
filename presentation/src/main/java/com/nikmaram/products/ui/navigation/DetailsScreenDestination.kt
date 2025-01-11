@@ -15,7 +15,7 @@ fun DetailsScreenDestination(
     DetailsScreen(
         state = viewModel.viewState.value,
         effectFlow = viewModel.effect,
-        isBookMarked = viewModel.isBookMarked.value,
+        viewModel = viewModel,
         onEventSent = { event -> viewModel.setEvent(event) },
         onNavigationRequested = { navigationEffect ->
             if (navigationEffect is DetailsContract.Effect.Navigation.Back) {
