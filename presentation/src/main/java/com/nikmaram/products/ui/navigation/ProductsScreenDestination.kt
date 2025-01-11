@@ -16,6 +16,7 @@ fun ProductsScreenDestination(
     HomeScreen(
         state = viewModel.viewState.value,
         effectFlow = viewModel.effect,
+        viewModel = viewModel,
         onEventSent = { event ->  viewModel.setEvent(event) },
         onNavigationRequested = { navigationEffect ->
             if (navigationEffect is HomeContract.Effect.Navigation.ToDetails) {

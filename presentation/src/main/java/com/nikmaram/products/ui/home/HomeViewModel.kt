@@ -1,6 +1,8 @@
 package com.nikmaram.products.ui.home
 
 
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.viewModelScope
 import com.nikmaram.products.ui.base.BaseViewModel
 import com.nikmaram.usecase.GetAllProductUseCase
@@ -15,6 +17,9 @@ class HomeViewModel @Inject constructor(
     private val productByTitleUseCase: GetProductByTitleUseCase
 ) : BaseViewModel<HomeContract.Event, HomeContract.HomeState, HomeContract.Effect>() {
 
+    private val _searchQuery = mutableStateOf("")
+    val searchQuery: State<String> get() = _searchQuery
+
     init {
         getAllProduct()
     }
@@ -26,6 +31,26 @@ class HomeViewModel @Inject constructor(
             is HomeContract.Event.Retry -> getAllProduct()
             is HomeContract.Event.OnProductClicked -> setEffect {
                 HomeContract.Effect.Navigation.ToDetails(event.product)
+            }
+            is HomeContract.Event.OnSearchQueryChanged -> {
+                _searchQuery.value = event.query ?: ""
+                if (event.query.isNullOrEmpty()){
+                    getAllProduct()
+                    return
+                }
+                searchProduct(event.query)
+            }
+        }
+    }
+
+    private fun searchProduct(query: String) {
+        setState { HomeContract.HomeState.LoadingState }
+        viewModelScope.launch {
+            val searchQuery = "%$query%"
+            productByTitleUseCase.invoke(searchQuery).onSuccess { data ->
+                setState { HomeContract.HomeState.DataLoaded(data) }
+            }.onFailure {
+                setState { HomeContract.HomeState.Error }
             }
         }
     }

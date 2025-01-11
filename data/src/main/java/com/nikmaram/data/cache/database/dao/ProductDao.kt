@@ -14,10 +14,10 @@ interface ProductDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertProduct(productEntity: ProductEntity)
 
-    @Query("SELECT * FROM products WHERE title LIKE :searchQuery ORDER BY title ASC")
+    @Query("SELECT * FROM products WHERE LOWER(title) LIKE LOWER(:searchQuery) ORDER BY price DESC")
     suspend fun searchProductsByTitle(searchQuery: String): List<ProductEntity>?
 
-    @Query("SELECT * FROM products ORDER BY title ASC")
+    @Query("SELECT * FROM products ORDER BY price DESC")
     suspend fun getProducts():List<ProductEntity>
 
     @Query("SELECT * FROM products WHERE id = :productId LIMIT 1")

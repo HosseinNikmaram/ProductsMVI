@@ -10,8 +10,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.nikmaram.products.ui.base.SIDE_EFFECTS_KEY
 import com.nikmaram.products.ui.feature.common.NetworkError
+import com.nikmaram.products.ui.feature.common.NotFindItem
 import com.nikmaram.products.ui.feature.common.Progress
 import com.nikmaram.products.ui.home.HomeContract
+import com.nikmaram.products.ui.home.HomeViewModel
 import com.nikmaram.products.ui.utility.generateFakeProduct
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
@@ -21,8 +23,9 @@ import kotlinx.coroutines.flow.onEach
 fun HomeScreen(
     state: HomeContract.HomeState,
     effectFlow: Flow<HomeContract.Effect>?,
+    viewModel: HomeViewModel?,
     onEventSent: (event: HomeContract.Event) -> Unit,
-    onNavigationRequested: (navigationEffect: HomeContract.Effect.Navigation) -> Unit
+    onNavigationRequested: (navigationEffect: HomeContract.Effect.Navigation) -> Unit,
 ) {
 
     LaunchedEffect(SIDE_EFFECTS_KEY) {
@@ -34,17 +37,27 @@ fun HomeScreen(
     }
 
     Scaffold(
-        topBar = { HomeTopBar() }
+        topBar = {
+            HomeTopBar(
+                searchQuery = viewModel?.searchQuery?.value ?: "",
+                onSearchQueryChange = { onEventSent(HomeContract.Event.OnSearchQueryChanged(it)) }
+            )
+        }
     ) { innerPadding ->
         Box(Modifier.padding(innerPadding)) {
             when (state) {
                 is HomeContract.HomeState.DataLoaded -> {
-                    HomeListItems(
-                        products = state.products,
-                        onProductClicked = {
-                            onEventSent(HomeContract.Event.OnProductClicked(it))
-                        }
-                    )
+                    if (state.products.isNullOrEmpty()) {
+                        NotFindItem(Modifier.fillMaxSize())
+                    }
+                    else {
+                        HomeListItems(
+                            products = state.products,
+                            onProductClicked = {
+                                onEventSent(HomeContract.Event.OnProductClicked(it))
+                            }
+                        )
+                    }
                 }
 
                 is HomeContract.HomeState.Error -> {
@@ -73,6 +86,7 @@ fun HomeScreenSuccessPreview() {
         effectFlow = null,
         onEventSent = {},
         onNavigationRequested = {},
+        viewModel = null,
     )
 }
 
@@ -84,5 +98,6 @@ fun HomeScreenErrorPreview() {
         effectFlow = null,
         onEventSent = {},
         onNavigationRequested = {},
+        viewModel = null,
     )
 }

@@ -10,11 +10,12 @@ class HomeContract {
     sealed class Event : ViewEvent {
         data object Retry : Event()
         data class OnProductClicked(val product: Product) : Event()
+        data class OnSearchQueryChanged(val query: String?) : Event()
     }
 
     @Immutable
     sealed class HomeState : ViewState {
-        data class DataLoaded(val products: List<Product>) : HomeState()
+        data class DataLoaded(val products: List<Product>?) : HomeState()
         data object LoadingState : HomeState()
         data object Error : HomeState()
         data object Initial : HomeState()
