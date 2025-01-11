@@ -34,11 +34,7 @@ class HomeViewModel @Inject constructor(
             }
             is HomeContract.Event.OnSearchQueryChanged -> {
                 _searchQuery.value = event.query ?: ""
-                if (event.query.isNullOrEmpty()){
-                    getAllProduct()
-                    return
-                }
-                searchProduct(event.query)
+                event.query?.let { searchProduct(it) }
             }
         }
     }
