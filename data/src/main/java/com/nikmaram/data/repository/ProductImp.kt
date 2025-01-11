@@ -13,15 +13,19 @@ class ProductImp  @Inject constructor(
     private val productApi: ProductApi,
     private val productDao: ProductDao,
     ):ProductRepository {
-    override suspend fun getProducts(): Result<List<Product>> {
-        if (productDao.getProductCount() == 0) {
-            productDao.insertProducts(
-                productApi.getAllProduct().toProductEntityList()
+    override suspend fun getProducts(): Result<List<Product>> = runCatching {
+        val productDtos = productApi.getAllProduct()
+        val existingProducts = productDao.getProducts().associateBy { it.id }
+        productDtos.map { productDto ->
+            val existingProduct = existingProducts[productDto.id]
+            val productEntity = productDto.toProductEntity().copy(
+                bookMarked = existingProduct?.bookMarked ?: false
             )
+            productDao.insertProduct(productEntity)
         }
-        return runCatching {
-            productDao.getProducts().toProductList()
-        }
+        productDao.getProducts().toProductList()
+    }.onFailure { error ->
+        println("Error fetching or updating products: ${error.message}")
     }
 
     override suspend fun getProductById(id: Int): Result<Product?> {
