@@ -16,7 +16,6 @@ A modern Android application showcasing products using Clean Architecture princi
   - Clean Architecture approach
   - Repository Pattern
 - [Retrofit2 & OkHttp3](https://github.com/square/retrofit) - Construct the REST APIs
-- [Moshi](https://github.com/square/moshi/) - A modern JSON library for Kotlin and Java
 - [Material Design 3](https://m3.material.io/) - Latest Material design components for Android
 
 ## 🏗️ Architecture
